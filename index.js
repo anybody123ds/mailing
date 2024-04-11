@@ -97,9 +97,7 @@ app.post("/send-jackpot", async (req, res) => {
 					  winning of $250,000 Spring allocation.
 					  Kindly reach out to Mr Akshay Khanna who is our CEO to process and claim your winning with a transparent due
 					  diligence. <br><br>
-					  You can reach out to him on his telephone number or media account only. <br>
-					  <!-- Here is his telephone number; <a href="tel:+1 (765) 360-9240">+1 (765) 360-9240</a> <br> -->
-					  Here is also his Facebook url name ; Akshay Khanna. <br> <br>
+					  You can reach out to him via official Facebook url: Akshay Khanna. <br> <br>
 					  Here is your winning licence code: JCKPTPWRBLL24031122345114470 <br>
 					  Your type of winning is Jackpot SpinOff Power Ball. <br> <br>
 					  We look forward to hearing from you in good spirits , do have an amazing rest of the day. <br><br><br>
