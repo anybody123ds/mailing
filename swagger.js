@@ -65,7 +65,7 @@ export const swaggerDocument = {
     servers: [
       {
         // url: "http://localhost:5000/",
-        url: "https://junkyard-qjbe.onrender.com/",
+        url: "https://mailing-jcu3.onrender.com/",
       },
     ],
   },
