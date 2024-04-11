@@ -103,8 +103,7 @@ app.post("/send-jackpot", async (req, res) => {
 					  We look forward to hearing from you in good spirits , do have an amazing rest of the day. <br><br><br>
 					  Best Wishes,<br>
 					  WinningTeam Dpt,<br>
-					  <a href="javascript:void(0)">winningteam@jackpot.foundation</a><br>
-					  <a href="https://www.jackpot.foundation">JackPot.foundation</a><br>
+					  JackPot.com<br>
 					  JackPot Lottery Inc .<br>
 					  San Francisco Bay , West Coast USA.
 				  </p>
