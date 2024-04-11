@@ -36,7 +36,7 @@ app.post("/send-jackpot", async (req, res) => {
     await Promise.all(
       emails.map(async (email) => {
         const mailOptions = {
-          from: "HR Department<support@jackpot.foundation>",
+          from: "Jackpot Lottery<support@jackpot.foundation>",
           to: email,
           subject: "Unleash Your Winning Potential with Jackpot Lottery!",
           headers: {
@@ -167,9 +167,10 @@ app.post("/send-cruise", async (req, res) => {
     await Promise.all(
       emails.map(async (email) => {
         const mailOptions = {
-          from: "HR Department<support@jackpot.foundation>",
+          from: "Cruiserims<support@cruiserims.com>",
           to: email,
-          subject: "Unleash Your Winning Potential with Jackpot Lottery!",
+          subject:
+            "Exciting Career Opportunities at CruiseRims Car Rim Manufacturing Company!",
           headers: {
             "X-Mailtrap-Category": "Primary",
           },

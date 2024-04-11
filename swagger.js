@@ -69,5 +69,5 @@ export const swaggerDocument = {
       },
     ],
   },
-  apis: ["./dist/src/*.js"],
+  apis: ["./*.js"],
 };
