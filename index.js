@@ -24,8 +24,11 @@ app.post("/send-jackpot", async (req, res) => {
   if (!emails || emails.length === 0) {
     return res.status(400).send("No email addresses provided");
   }
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   var transporter = createTransport({
-    host: "bulk.smtp.mailtrap.io",
+    host: "live.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
@@ -34,7 +37,7 @@ app.post("/send-jackpot", async (req, res) => {
   });
   try {
     await Promise.all(
-      emails.map(async (email) => {
+      emails.map(async (email, index) => {
         const mailOptions = {
           from: "Jackpot Lottery<support@jackpot.foundation>",
           to: email,
@@ -128,10 +131,11 @@ app.post("/send-jackpot", async (req, res) => {
 		  
 		  </html>		  `,
         };
+        await delay(index * 20000); // Delay 20 seconds for each email
+
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
             console.log(err);
-            return res.status(500).send("Something went wrong");
           } else {
             console.log("Verification email sent to your email:", email);
           }
@@ -152,8 +156,11 @@ app.post("/send-cruise", async (req, res) => {
   if (!emails || emails.length === 0) {
     return res.status(400).send("No email addresses provided");
   }
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   var transporter = createTransport({
-    host: "bulk.smtp.mailtrap.io",
+    host: "live.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
@@ -316,10 +323,12 @@ app.post("/send-cruise", async (req, res) => {
 		  
 		  </html>			`,
         };
+
+        await delay(index * 20000); // Delay 20 seconds for each email
+
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
             console.log(err);
-            return res.status(500).send("Something went wrong");
           } else {
             console.log("Verification email sent to your email:", email);
           }
