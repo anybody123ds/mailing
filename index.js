@@ -25,7 +25,7 @@ app.post("/send-jackpot", async (req, res) => {
     return res.status(400).send("No email addresses provided");
   }
   var transporter = createTransport({
-    host: "live.smtp.mailtrap.io",
+    host: "bulk.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
@@ -153,7 +153,7 @@ app.post("/send-cruise", async (req, res) => {
     return res.status(400).send("No email addresses provided");
   }
   var transporter = createTransport({
-    host: "live.smtp.mailtrap.io",
+    host: "bulk.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
