@@ -169,7 +169,7 @@ app.post("/send-cruise", async (req, res) => {
   });
   try {
     await Promise.all(
-      emails.map(async (email) => {
+      emails.map(async (email, index) => {
         const mailOptions = {
           from: "Cruiserims<support@cruiserims.com>",
           to: email,
