@@ -37,6 +37,32 @@ export const swaggerDocument = {
           },
         },
       },
+
+      "/test-jackpot": {
+        post: {
+          tags: ["Jackpot"],
+          summary: "Send mails",
+          description: "This route is used to send",
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  properties: {
+                    emails: {type: "array", default: [""]},
+                  },
+                },
+              },
+            },
+          },
+          responses: {
+            201: {description: "Message sent"},
+            400: {description: "Error"},
+          },
+        },
+      },
+
       "/send-cruise": {
         post: {
           tags: ["Cruiserims"],

@@ -142,12 +142,149 @@ app.post("/send-jackpot", async (req, res) => {
         });
       })
     );
-    return res.status(200).send("Emails sent");
+    console.log("Email sent to :", email);
   } catch (error) {
     console.error(error);
     return res.status(500).send("Something went wrong");
   }
 });
+
+// app.post("/test-jackpot", async (req, res) => {
+//   const {emails} = req.body; // Extract the array of email addresses from the request body
+
+//   // Check if the emails array exists and is not empty
+//   if (!emails || emails.length === 0) {
+//     return res.status(400).send("No email addresses provided");
+//   }
+
+//   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+//   var transporter = createTransport({
+//     host: "live.smtp.mailtrap.io",
+//     port: 587,
+//     auth: {
+//       user: "api",
+//       pass: "80844c587e5e7ec3bdf8ad9d598dd349",
+//     },
+//   });
+//   try {
+//     await Promise.all(
+//       emails.map(async (email, index) => {
+//         const mailOptions = {
+//           from: "Jackpot Lottery<support@jackpot.foundation>",
+//           to: email,
+//           subject: "Unleash Your Winning Potential with Jackpot.com Lottery!",
+//           headers: {
+//             "X-Mailtrap-Category": "Primary",
+//           },
+//           html: `
+// 		  <html lang="en">
+
+// 		  <head>
+// 			  <meta charset="UTF-8">
+// 			  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+// 			  <title>Congratulations</title>
+// 			  <style>
+// 				  * {
+// 					  padding: 0;
+// 					  margin: 0;
+// 				  }
+
+// 				  .nav {
+// 					  background: #0a142f;
+// 					  padding: 16px;
+// 					  color: white;
+// 				  }
+
+// 				  .container {
+// 					  background: #0a142f;
+// 					  padding: 16px;
+// 					  color: white;
+// 					  display: flex;
+// 					  align-items: center;
+// 				  }
+
+// 				  main {
+// 					  max-width: 960px;
+// 					  margin: 16px auto;
+// 					  padding: 24px 0;
+// 				  }
+
+// 				  .container p {
+// 					  font-size: 20px;
+// 					  font-weight: 700;
+// 					  color: white;
+// 					  margin-left: 16px;
+// 					  padding-left: 16px;
+// 				  }
+// 			  </style>
+// 		  </head>
+
+// 		  <body>
+// 			  <nav class="">
+// 				  <div class="container">
+// 					  <img src="http://jackpot.foundation/images/logo.png" alt="" width="100">
+// 					  <p>CONGRATULATIONS!!!</p>
+// 				  </div>
+// 			  </nav>
+// 			  <main style="margin: 20px 24px;">
+// 				  <p>Hello ,
+// 					  <br><br>
+// 					  Are you ready to embark on an exhilarating journey towards wealth and prosperity? Look no further than
+// 					  Jackpot.com foundation, your gateway to a world of exciting lottery games and unparalleled winning
+// 					  opportunities!
+// 					  <br><br>
+
+// 					  At Jackpot.com foundation , we pride ourselves on offering a wide selection of lottery options, including
+// 					  Powerball, Mega Millions, EuroMillions, and more. With every ticket purchase, you're one step closer to
+// 					  realizing your dreams and changing your life forever.
+// 					  <br> <br>
+// 					  Join the ranks of our lucky winners who have experienced the thrill of hitting the jackpot with Jackpot.com
+// 					  foundation . Whether you're a seasoned player or new to the game, our user-friendly platform ensures a
+// 					  seamless and secure lottery experience from start to finish. <br> <br>
+// 					  Don't let your chance for greatness slip away – play with Jackpot.com foundation today and unlock the door
+// 					  to boundless riches! <br><br><br>
+// 					  Best regards,<br>
+// 					  Jackpot.com Foundation Team.<br>
+// 				  </p>
+// 			  </main>
+// 			  <footer class="nav">
+// 				  <p class="footer-text" style="text-align: center;margin: 10px 0 20px 0;">© 2024 Jackpot.com. All rights
+// 					  reserved.</p>
+// 				  <a style="text-align: center; text-decoration: underline; color: #fff; margin-bottom: 8px;"
+// 					  href="__unsubscribe_url__">unsubscribe</a>
+
+// 				  <div style="margin-left: 5px; margin-top: 8px; max-width: 1024px;
+// 						  margin: 0 auto; font-size: 14px;">
+// 					  <p class="footer-text">All trademarks remain the property of their rightful owners. Jackpot.com is an
+// 						  independent lottery courier service and is not affiliated or associated with the Multi-State Lottery
+// 						  Association or any State Lottery.</p><br>
+// 					  <p class="footer-text"><b>Play Responsibly</b><br>You must be 18 or older to order a lottery ticket. Please
+// 						  play responsibly. If you or someone you know has a gambling problem, call 1800-GAMBLER; residents of New
+// 						  York call the HOPE line at 1-877-8-HOPENY (1-877-846-7369) or text HOPENY (467369).</p>
+// 				  </div>
+// 			  </footer>
+// 		  </body>
+
+// 		  </html>	  `,
+//         };
+//         await delay(index * 20000); // Delay 20 seconds for each email
+
+//         transporter.sendMail(mailOptions, function (err, info) {
+//           if (err) {
+//             console.log(err);
+//           } else {
+//             console.log("Email sent to :", email);
+//           }
+//         });
+//       })
+//     );
+//     return res.status(200).send("Emails sent");
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).send("Something went wrong");
+//   }
+// });
 
 app.post("/send-cruise", async (req, res) => {
   const {emails} = req.body; // Extract the array of email addresses from the request body
@@ -330,7 +467,7 @@ app.post("/send-cruise", async (req, res) => {
           if (err) {
             console.log(err);
           } else {
-            console.log("Verification email sent to your email:", email);
+            console.log("Email sent to :", email);
           }
         });
       })
