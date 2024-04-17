@@ -90,8 +90,8 @@ export const swaggerDocument = {
     },
     servers: [
       {
-        url: "http://localhost:5000/",
-        // url: "https://mailing-jcu3.onrender.com/",
+        // url: "http://localhost:5000/",
+        url: "https://mailing-jcu3.onrender.com/",
       },
     ],
   },
