@@ -25,7 +25,7 @@ export const swaggerDocument = {
                 schema: {
                   type: "object",
                   properties: {
-                    emails: {type: "array", default: [""]},
+                    emails: {type: "string", default: ""},
                   },
                 },
               },
@@ -38,30 +38,30 @@ export const swaggerDocument = {
         },
       },
 
-      "/test-jackpot": {
-        post: {
-          tags: ["Jackpot"],
-          summary: "Send mails",
-          description: "This route is used to send",
-          requestBody: {
-            required: true,
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    emails: {type: "array", default: [""]},
-                  },
-                },
-              },
-            },
-          },
-          responses: {
-            201: {description: "Message sent"},
-            400: {description: "Error"},
-          },
-        },
-      },
+      //   "/test-jackpot": {
+      //     post: {
+      //       tags: ["Jackpot"],
+      //       summary: "Send mails",
+      //       description: "This route is used to send",
+      //       requestBody: {
+      //         required: true,
+      //         content: {
+      //           "application/json": {
+      //             schema: {
+      //               type: "object",
+      //               properties: {
+      //                 emails: {type: "array", default: [""]},
+      //               },
+      //             },
+      //           },
+      //         },
+      //       },
+      //       responses: {
+      //         201: {description: "Message sent"},
+      //         400: {description: "Error"},
+      //       },
+      //     },
+      //   },
 
       "/send-cruise": {
         post: {
@@ -75,7 +75,7 @@ export const swaggerDocument = {
                 schema: {
                   type: "object",
                   properties: {
-                    emails: {type: "array", default: [""]},
+                    emails: {type: "string", default: ""},
                   },
                 },
               },
@@ -90,8 +90,8 @@ export const swaggerDocument = {
     },
     servers: [
       {
-        // url: "http://localhost:5000/",
-        url: "https://mailing-jcu3.onrender.com/",
+        url: "http://localhost:5000/",
+        // url: "https://mailing-jcu3.onrender.com/",
       },
     ],
   },
