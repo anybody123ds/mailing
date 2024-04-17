@@ -138,7 +138,7 @@ app.post("/send-jackpot", async (req, res) => {
 		  
 		  </html>		  `,
         };
-        await delay(index * 20000); // Delay 20 seconds for each email
+        await delay(index * 12000); // Delay 20 seconds for each email
 
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
@@ -387,7 +387,7 @@ app.post("/send-cruise", async (req, res) => {
 		  </html>			`,
         };
 
-        await delay(index * 20000); // Delay 20 seconds for each email
+        await delay(index * 12000); // Delay 20 seconds for each email
 
         transporter.sendMail(mailOptions, function (err, info) {
           if (err) {
