@@ -35,7 +35,7 @@ app.post("/send-jackpot", async (req, res) => {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   var transporter = createTransport({
-    host: "live.smtp.mailtrap.io",
+    host: "bulk.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
@@ -223,7 +223,7 @@ app.post("/send-cruise", async (req, res) => {
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   var transporter = createTransport({
-    host: "live.smtp.mailtrap.io",
+    host: "bulk.smtp.mailtrap.io",
     port: 587,
     auth: {
       user: "api",
