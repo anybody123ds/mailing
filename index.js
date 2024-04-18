@@ -25,9 +25,16 @@ app.post("/send-jackpot", async (req, res) => {
     return res.status(400).send("No email addresses provided");
   }
 
-  // Split the string of email addresses by commas and trim any leading/trailing spaces
-  const emailArray = emails.split(",").map((email) => email.trim());
+  let emailArray;
 
+  // Check if the emails string contains multiple addresses separated by commas
+  if (emails.includes(",")) {
+    // Split the string of email addresses by commas and trim any leading/trailing spaces
+    emailArray = emails.split(",").map((email) => email.trim());
+  } else {
+    // If there's only one email address, create an array with that single address
+    emailArray = [emails.trim()];
+  }
   // Check if the resulting array is empty after splitting
   if (emailArray.length === 0) {
     return res.status(400).send("No valid email addresses provided");
@@ -46,9 +53,10 @@ app.post("/send-jackpot", async (req, res) => {
     await Promise.all(
       emailArray.map(async (email, index) => {
         const mailOptions = {
-          from: "Jackpot Lottery<support@jackpot.foundation>",
+          from: "Jackpot Lottery<winningteam@jackpot.foundation>",
           to: email,
-          subject: "Unleash Your Winning Potential with Jackpot Lottery!",
+          subject:
+            "Congratulations! You've Won the Jackpot Powerball Lottery for this season!",
           headers: {
             "X-Mailtrap-Category": "Primary",
           },
@@ -103,19 +111,23 @@ app.post("/send-jackpot", async (req, res) => {
 				  </div>
 			  </nav>
 			  <main style="margin: 20px 24px;">
-				  <p>Hello and Congratulations! You were luckily and randomly picked for our JACKPOT Spinoff Power Ball lottery
-					  winning of $250,000 Spring allocation.
-					  Kindly reach out to Mr Akshay Khanna who is our CEO to process and claim your winning with a transparent due
-					  diligence. <br><br>
-					  You can reach out to him via official Facebook url: Akshay Khanna. <br> <br>
-					  Here is your winning licence code: JCKPTPWRBLL24031122345114470 <br>
-					  Your type of winning is Jackpot SpinOff Power Ball. <br> <br>
-					  We look forward to hearing from you in good spirits , do have an amazing rest of the day. <br><br><br>
-					  Best Wishes,<br>
-					  WinningTeam Dpt,<br>
-					  JackPot.com<br>
+				  <p>Dear winner,
+				  <br>
+				  We are thrilled to inform you that you are the lucky winner of the Jackpot Powerball Lottery! On behalf of the entire Jackpot family, we extend our warmest congratulations to you.
+				  <br> <br>
+				  After careful selection, you have been randomly  chosen as the grand prize winner in your state, entitling you to a life-changing sum of money., and we couldn't be happier to share this incredible news with you.
+				  <br><br>
+					  Your winning ticket number is jCKPTPWRBLL24031122345114470, and the jackpot prize stands at an astounding $250,000. This remarkable achievement is a testament to your luck and our commitment to providing thrilling opportunities for our players.
+					  <br> <br>
+					  We understand the magnitude of this moment and the impact it will have on your life. Rest assured, our team is dedicated to ensuring a seamless and secure claiming process for your prize. Please respond to this email at your earliest convenience to initiate the necessary steps to claim your winnings.
+					  <br> <br>
+					  Once again, congratulations on this monumental win! We look forward to accompanying you on this exciting journey ahead.
+					 <br><br><br>
+					  Best regards,<br>
+					  Winning Team Department & Claims.<br>
 					  JackPot Lottery Inc .<br>
-					  San Francisco Bay , West Coast USA.
+					  JackPot.com<br>
+					  JackPot.foundation<br>
 				  </p>
 			  </main>
 			  <footer class="nav">
@@ -144,12 +156,12 @@ app.post("/send-jackpot", async (req, res) => {
           if (err) {
             console.log(err);
           } else {
-            console.log("Verification email sent to your email:", email);
+            console.log("Email sent to :", email);
           }
         });
       })
     );
-    console.log("Email sent to :", email);
+    return res.status(200).send("Emails sent");
   } catch (error) {
     console.error(error);
     return res.status(500).send("Something went wrong");
@@ -212,8 +224,16 @@ app.post("/send-cruise", async (req, res) => {
     return res.status(400).send("No email addresses provided");
   }
 
-  // Split the string of email addresses by commas and trim any leading/trailing spaces
-  const emailArray = emails.split(",").map((email) => email.trim());
+  let emailArray;
+
+  // Check if the emails string contains multiple addresses separated by commas
+  if (emails.includes(",")) {
+    // Split the string of email addresses by commas and trim any leading/trailing spaces
+    emailArray = emails.split(",").map((email) => email.trim());
+  } else {
+    // If there's only one email address, create an array with that single address
+    emailArray = [emails.trim()];
+  }
 
   // Check if the resulting array is empty after splitting
   if (emailArray.length === 0) {
